@@ -1,0 +1,109 @@
+
+  
+  .auth_container {
+    display: flex;
+    justify-content: center;
+    width: 80%;
+    max-width: 800px;
+  }
+  
+  .auth_form {
+    background-color: var(--bg-secondary-color);
+    padding: 20px;
+    border-radius: 10px;
+    width: 45%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .auth_form h2 {
+    margin-top: 0;
+  }
+
+  .auth_form form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+  }
+  
+  .form_control {
+    margin-bottom: 10px;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .form_control label {
+    display: block;
+    margin-bottom: 5px;
+  }
+  
+  .form_control input {
+    width: 100%;
+    padding: 10px;
+    border-radius: 5px;
+    border: none;
+
+  }
+
+  .form_control span{
+    font-size: x-small;
+    align-self: flex-end;
+  }
+  .register{
+    font-size: small;
+  }
+  
+  .button {
+    background-color: var(--primary-color);
+    color: var(--text-color);
+    padding: 10px;
+    margin: 10px 0 10px 0;
+    border: none;
+    width: 30%;
+  }  
+
+
+
+  /* .auth_container {
+    background-image: url("https://example.com/background.jpg");
+    background-size: cover;
+    background-position: center;
+    height: 100vh;
+  }
+  
+  .auth_form {
+    background: linear-gradient(to right, #FAD0C4, #FFD1FF);
+    padding: 20px;
+    border-radius: 10px;
+    width: 45%;
+    animation: fadeIn 1s;
+  }
+  
+  button {
+    background-color: var(--primary-color);
+    color: #fff;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    font-size: 1.2rem;
+    transition: background-color 0.2s ease-in-out;
+  }
+  
+  button:hover {
+    background-color: #6C63FF;
+  }
+  
+  .form_control input:focus {
+    border: 2px solid #6C63FF;
+  }
+  
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }  */

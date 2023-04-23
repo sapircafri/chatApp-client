@@ -1,0 +1,15 @@
+.sideBar{
+  background-color: #f5f5f5; /* light gray */
+
+    width: 30%;
+    height: 100%;
+}
+
+.sideBar_header{
+    height: 9%;
+    display: flex;
+    padding-left: 7px;
+    align-items: center;
+}
+
+

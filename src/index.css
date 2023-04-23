@@ -1,13 +1,41 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100&display=swap');
+
+:root {
+  --bg-color:#F2F2F2;
+  --bg-secondary-color:#E5E5E5 ;
+  --primary-color: #fff; /* white */
+  ;
+  --text-color: #120D26  ;
+  --text-secondary-color:#5669FF;
+  --text-third-color:#747688;
+  --text-Fourth-color :#FFFFFF;
+  --input-color: #e1f5fe; /* light blue */
+  ;
+ 
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+body {
+  /* background-color: var(--bg-color); */
+  /* background-image:url("https://www.toptal.com/designers/subtlepatterns/uploads/paisley.png") ;
+  https://www.toptal.com/designers/subtlepatterns/uploads/fabric_1.png */
+  color: var(--text-color);
+  font-family: 'Roboto', sans-serif;
+  font-weight:600;
+}
+
+label {
+  font-size: var(--font-size-label);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+input{
+border: none;
+}
+input:focus {
+  outline: none;
 }

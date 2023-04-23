@@ -1,0 +1,47 @@
+.avatar {
+    width: 10%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.input_file {
+    display: none;
+}
+
+.avatarImage {
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    object-fit: cover;
+    image-rendering: optimizeQuality;
+}
+
+.avatarCircle {
+    width: 35px;
+    height: 35px;
+    /* border: solid 1px grey; */
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+
+/* .cameraIcon{
+    position: absolute;
+    bottom: -4px;
+    right: -4px;
+} */
+
+.defultAvatar {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    color: rgb(155, 155, 155);
+    border: none;
+}

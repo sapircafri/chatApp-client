@@ -1,0 +1,97 @@
+.chatList_container {
+    background-color: #eee;
+     border: 1px solid #ccc;
+    width: 100%;
+    height: 85%;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+}
+.search_peaple{
+    display: flex;
+    align-items: center;
+    position: relative;
+    width: 100%;
+}
+  
+  .search_input{
+    border: none;
+    /* visibility: hidden; */
+    height: 30px;
+    width: 80%;
+    padding: 10px 10px 10px 30px;
+    border-radius: 5px;
+  }
+  
+  .search_icon{
+    position: absolute;
+    top: 50%;
+    left: 2%;
+    transform: translateY(-50%);
+    color: black;
+    font-size: 20px;
+  }
+
+.user {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    height: 15%;
+}
+.user:hover{
+    background-color: #dce6e9; 
+    cursor: pointer;
+    
+}
+
+.selectedUser {
+    background-color: #dee5e7;
+}
+
+
+.avatar{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: 900;
+    background-color: rgb(234, 232, 232);
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    margin:10px;
+    position: relative;
+
+}
+
+.user_status {
+    position: absolute;
+    bottom: -4px;
+    right: -4px;
+}
+.online{
+    
+    color: #2de0a5;
+}
+
+.offline {
+    color: grey;
+    
+}
+
+.newChat{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #5be1b4;
+    border-radius: 50%;
+    height: 40px;
+    width: 40px;
+    position: absolute;
+    bottom: 2%;
+    right: 2%;
+}
+
+.newChatIcon {
+    width: 45%;
+    height: 45%;
+} 

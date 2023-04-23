@@ -1,0 +1,11 @@
+.header{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 80%;
+    height: 10%;
+
+}
+.icon{
+    width: 20%;
+}
