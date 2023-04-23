@@ -6,7 +6,7 @@ export const setToken = async (token) => {
 }
 
 const apiCalls = async (method, url, data,headers) => {
-    const basePath='http://localhost:4000/'
+    const basePath='https://chat-app-server-eight-psi.vercel.app/'
     try {
         const result = await axios({
             method: method,
