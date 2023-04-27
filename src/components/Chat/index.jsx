@@ -84,7 +84,6 @@ function Chat({ socket }) {
       {selectedUserId ? <>
         <div className={styles.messages}>
           {messages.map((message, index) => {
-            console.log(message);
             const displayDate = shouldDisplayDate(new Date(message.timestamp).toLocaleDateString());
             return (
               <>

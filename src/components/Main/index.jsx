@@ -21,7 +21,9 @@ function Main() {
 
   }
 
-  const socket = new WebSocket(`ws://localhost:4000/:user_id=${user._id}`);
+  // const socket = new WebSocket(`ws://chatapp-735s.onrender.com:4000/:user_id=${user._id}`);
+  const socket = new WebSocket(`wss://chatapp-735s.onrender.com/:user_id=${user._id}`);
+
   useEffect(() => {
     connectToWs();
     return () => {

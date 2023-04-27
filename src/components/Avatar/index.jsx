@@ -6,7 +6,7 @@ import { BiCamera } from 'react-icons/bi';
 import { FaUserCircle } from 'react-icons/fa';
 import { userContext } from '../../layout';
 
-function Avatar({avatar, backgroundColor}) {
+function Avatar({avatar}) {
   const { user } = useContext(userContext)
   const [profileImage, setProfileImage] = useState(user.avatar);
   const photoInput = useRef();
@@ -33,7 +33,7 @@ function Avatar({avatar, backgroundColor}) {
 
       <span className={styles.avatarCircle} onClick={openFileExplorer}>
         {avatar ?
-          <img className={styles.avatarImage} src={`http://localhost:4000/${avatar}`} alt="sas" />
+          <img className={styles.avatarImage} src={avatar} alt="sas" />
           :
           <FaUserCircle className={styles.defultAvatar} />
         }
