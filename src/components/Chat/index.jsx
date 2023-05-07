@@ -53,6 +53,11 @@ function Chat({ socket }) {
     }
   };
   
+  const handleKeyDown = (e) => {
+    if (e.key === 'Enter') {
+      handleSend();
+    }
+  };
 
   const shouldDisplayDate = (messageDate) => {
     if (messageDate !== currentDateRef.current) {
@@ -127,7 +132,7 @@ function Chat({ socket }) {
           </div>
           <input type="file" style={{ display: 'none' }} ref={inputFiles} onInput={handleSend} />
           <div className={styles.iconDiv}><MdAttachFile style={{ transform: 'rotate(30deg)' }} className={styles.icon} onClick={uploudFile} /></div>
-          <input type="text" placeholder='Type a message' ref={inputTextRef} />
+          <input type="text" placeholder='Type a message' ref={inputTextRef} onKeyDown={handleKeyDown}/>
           <div className={styles.iconDiv}><BsFillSendFill className={styles.icon} onClick={handleSend} /></div>
         </div>
 

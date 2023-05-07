@@ -53,7 +53,7 @@ function LoginPage() {
               placeholder="Enter your password"
             />
             <span>
-              <Link to={'/forgetPass'}>
+              <Link to={'/forgetPassword'}>
                 forget Password?
               </Link>
             </span>

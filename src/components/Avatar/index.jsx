@@ -8,7 +8,7 @@ import { userContext } from '../../layout';
 
 function Avatar({avatar}) {
   const { user } = useContext(userContext)
-  const [profileImage, setProfileImage] = useState(user.avatar);
+  const [profileImage, setProfileImage] = useState(true);
   const photoInput = useRef();
 
   const openFileExplorer = () => {
@@ -32,8 +32,8 @@ function Avatar({avatar}) {
       />
 
       <span className={styles.avatarCircle} onClick={openFileExplorer}>
-        {avatar ?
-          <img className={styles.avatarImage} src={avatar} alt="sas" />
+        {avatar && profileImage ?
+    <img className={styles.avatarImage} src={avatar} alt="avatar" onError={(e) => setProfileImage(null)} />
           :
           <FaUserCircle className={styles.defultAvatar} />
         }

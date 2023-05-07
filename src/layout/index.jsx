@@ -9,6 +9,7 @@ import apiCalls, { setToken } from "../apiRequest";
 import ForgetPassword from "../pages/ForgetPassword";
 import Header from "../components/Header";
 import Main from "../components/Main";
+import ResetPassword from "../pages/ResetPassword";
 
 export const userContext = createContext();
 export const messageContext = createContext();
@@ -52,7 +53,8 @@ function Layout() {
               <>
                 <Route path="/" element={<LoginPage />} />
                 <Route path="/register" element={<RegisterPage />} />
-                <Route path="/forgetPass" element={<ForgetPassword />} />
+                <Route path="/forgetPassword" element={<ForgetPassword />} />
+                <Route path="/resetPassword" element={<ResetPassword />} />
 
               </>
 

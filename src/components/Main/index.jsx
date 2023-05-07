@@ -18,10 +18,9 @@ function Main() {
     });
     console.log(people);
     // setOnlineUsers(people)
-
   }
 
-  // const socket = new WebSocket(`ws://chatapp-735s.onrender.com:4000/:user_id=${user._id}`);
+  // const socket = new WebSocket(`ws://localhost:4000/:user_id=${user._id}`);
   const socket = new WebSocket(`wss://chatapp-735s.onrender.com/:user_id=${user._id}`);
 
   useEffect(() => {
@@ -32,7 +31,6 @@ function Main() {
   }, [selectedUserId]);
 
   function connectToWs() {
-    console.log(1111);
     socket.onmessage = async (e) => {
       const message = await JSON.parse(e.data);
       if ('online' in message) {
