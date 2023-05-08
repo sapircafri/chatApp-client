@@ -6,8 +6,8 @@ export const setToken = async (token) => {
 }
 
 const apiCalls = async (method, url, data,headers) => {
-    // const basePath='https://chatapp-735s.onrender.com/'
-    const basePath='http://localhost:4000/'
+    const basePath='https://chatapp-735s.onrender.com/'
+    // const basePath='http://localhost:4000/'
 
     try {
         const result = await axios({
