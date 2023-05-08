@@ -5,6 +5,7 @@ import styles from "./style.module.css";
 import { TbMessageCircle, TbPointFilled } from 'react-icons/tb'
 import Avatar from '../Avatar';
 import { RiSearchLine } from 'react-icons/ri';
+import { BsArrowLeft } from 'react-icons/bs';
 
 function ChatsList({ onlineUsers }) {
   const { user } = useContext(userContext);
@@ -19,20 +20,26 @@ function ChatsList({ onlineUsers }) {
       .then(res => {
         setChatList(res.data)
         setFilteredChatList(res.data);
+
       })
   }, [])
 
   const searchUser = (input) => {
-    if (input == '' && startNewChat) {
-      setFilteredChatList(chatList);
+    if (!startNewChat) {
+      setFilteredChatList([]);
       setStartNewChat(false)
     }
     else {
       if (startNewChat) {
+        if(input==''){
+          setFilteredChatList(null)
+          return
+        }
         apiCalls("get", `user/getUsersByName/${input}`)
           .then(res => {
-            res.data === null ?
-              setFilteredChatList(null) :
+            res.data.length ==0 ?
+              setFilteredChatList(null)
+              :
               setFilteredChatList(res.data);
           })
       }
@@ -51,42 +58,54 @@ function ChatsList({ onlineUsers }) {
   }
 
 
+
   return (
     <>
       <div className={styles.search_peaple}>
-        <RiSearchLine className={styles.search_icon} />
+        {startNewChat?
+          <BsArrowLeft className={styles.search_icon} onClick={()=>setStartNewChat(false)} />
+          :
+          <RiSearchLine className={styles.search_icon} />
+        }
         <input
           ref={inputRef}
           className={styles.search_input}
           type="text"
           placeholder='search..'
-          onChange={(e) => searchUser(e.target.value)} />
+          onChange={(e) => searchUser(e.target.value)}
+        />
       </div>
 
       <div className={styles.chatList_container}>
-        {filteredChatList &&
+        {chatList.length === 0 && !startNewChat ? (
+          <div className={styles.selectUser}>
+            <span>To start a chat, search for a person!</span>
+          </div>
+        ) : (
+          filteredChatList &&
           filteredChatList.map((v) =>
-            user._id != v._id &&
-            <div id={v._id} className={`${styles.user} ${selectedUserId === v._id ? styles.selectedUser : ''}`}
-              onClick={() => handleUser(v)}>
-              {v.avatar == 'default-avatar.png' ?
-                <div className={styles.avatar}><Avatar /></div>
-                :
-                <div className={styles.avatar}> <Avatar avatar={v.avatar} /> </div>
-
-              }
-              <div>
-                {v.fname}{" "}{v.lname}
+            user._id !== v._id && (
+              <div
+                id={v._id}
+                className={`${styles.user} ${selectedUserId === v._id ? styles.selectedUser : ''}`}
+                onClick={() => handleUser(v)}
+              >
+                {v.avatar === 'default-avatar.png' ? (
+                  <div className={styles.avatar}><Avatar /></div>
+                ) : (
+                  <div className={styles.avatar}><Avatar avatar={v.avatar} /></div>
+                )}
+                <div>
+                  {v.fname} {v.lname}
+                </div>
               </div>
-            </div>
+            )
           )
-        }
+        )}
         <div className={styles.newChat}><TbMessageCircle className={styles.newChatIcon} onClick={searchFromAllUsers} /></div>
       </div>
     </>
-
-  )
+  );
 }
-{/* <span className={`${styles.user_status} ${onlineUsers[v._id]===v._id ? styles.online : styles.offline}`}><TbPointFilled/></span> */ }
 
-export default ChatsList
+export default ChatsList;
