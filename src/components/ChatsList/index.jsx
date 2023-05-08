@@ -56,6 +56,10 @@ function ChatsList({ onlineUsers }) {
     setFilteredChatList(null);
     inputRef.current.focus();
   }
+  const QuickFromSearchMode = () => {
+    setStartNewChat(false)
+    setFilteredChatList(chatList);
+  }
 
 
 
@@ -63,7 +67,7 @@ function ChatsList({ onlineUsers }) {
     <>
       <div className={styles.search_peaple}>
         {startNewChat?
-          <BsArrowLeft className={styles.search_icon} onClick={()=>setStartNewChat(false)} />
+          <BsArrowLeft className={styles.search_icon} onClick={()=>QuickFromSearchMode()} />
           :
           <RiSearchLine className={styles.search_icon} />
         }
