@@ -25,11 +25,6 @@ function ChatsList({ onlineUsers }) {
   }, [])
 
   const searchUser = (input) => {
-    if (!startNewChat) {
-      setFilteredChatList([]);
-      setStartNewChat(false)
-    }
-    else {
       if (startNewChat) {
         if(input==''){
           setFilteredChatList(null)
@@ -45,11 +40,10 @@ function ChatsList({ onlineUsers }) {
       }
       else {
         const filteredList = chatList.filter((v) =>
-          v.fname.toLowerCase().includes(input.toLowerCase()) || v.lname.toLowerCase().includes(input.toLowerCase()));
+        v.fname.toLowerCase().includes(input.toLowerCase()) || v.lname.toLowerCase().includes(input.toLowerCase()));
         setFilteredChatList(filteredList);
-
       }
-    }
+    
   }
   const searchFromAllUsers = () => {
     setStartNewChat(true);
