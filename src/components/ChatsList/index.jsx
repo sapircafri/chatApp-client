@@ -89,9 +89,9 @@ function ChatsList({ onlineUsers }) {
                 onClick={() => handleUser(v)}
               >
                 {v.avatar === 'default-avatar.png' ? (
-                  <div className={styles.avatar}><Avatar /></div>
+                  <div className={styles.avatar}><Avatar  /></div>
                 ) : (
-                  <div className={styles.avatar}><Avatar avatar={v.avatar} /></div>
+                  <div className={styles.avatar}><Avatar avatar={v.avatar}  /></div>
                 )}
                 <div>
                   {v.fname} {v.lname}

@@ -6,21 +6,25 @@ import { BiCamera } from 'react-icons/bi';
 import { FaUserCircle } from 'react-icons/fa';
 import { userContext } from '../../layout';
 
-function Avatar({avatar}) {
+function Avatar({avatar,upload}) {
   const { user } = useContext(userContext)
   const [profileImage, setProfileImage] = useState(true);
   const photoInput = useRef();
+  const [imageURL, setImageURL] = useState(avatar);
 
   const openFileExplorer = () => {
-    photoInput.current.click();
-
+    if (upload){
+      photoInput.current.click();
+    } 
+      return
   }
+  
   const readPhoto = (e) => {
     const formData = new FormData();
     formData.append("image", e.target.files[0], e.target.files[0].name);
-    formData.append("clientId", user._id);
+    formData.append("email", user.email);
     apiCalls("post", 'user/uploadAvatar', formData)
-      .then(res => setProfileImage(user.avatar))
+    .then(res=>setImageURL(res.data))
   }
 
   return (
@@ -32,8 +36,8 @@ function Avatar({avatar}) {
       />
 
       <span className={styles.avatarCircle} onClick={openFileExplorer}>
-        {avatar && profileImage ?
-    <img className={styles.avatarImage} src={avatar} alt="avatar" onError={(e) => setProfileImage(null)} />
+        {imageURL && profileImage ?
+       <img className={styles.avatarImage} src={imageURL} alt="avatar" onError={()=>setProfileImage(false)}  />
           :
           <FaUserCircle className={styles.defultAvatar} />
         }
